@@ -61,8 +61,11 @@ if [ -f %{_sysconfdir}/motd ]; then # motd exists and will be blessed with the i
     echo "Removing empty %{_sysconfdir}/motd to install %{name}.";
     rm %{_sysconfdir}/motd
   fi
-  echo "Installing %{_install_motd_file} from %{name}."
-  ln -s %{_datarootdir}/%{name}/%{_install_motd_file} %{_sysconfdir}/motd
+  # only try installing if we succeeded at removing the original file
+  if [ ! -f %{_sysconfdir}/motd ]; then
+    echo "Installing %{_install_motd_file} from %{name}."
+    ln -s %{_datarootdir}/%{name}/%{_install_motd_file} %{_sysconfdir}/motd
+  fi
 else 
   echo "Could not find %{_sysconfdir}/motd, aborting post-install.";
 fi
