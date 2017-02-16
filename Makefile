@@ -24,10 +24,10 @@ PREFIX   ?= /usr/local
 BINDIR    = $(PREFIX)/bin
 LIBDIR    = $(PREFIX)/lib
 ETCDIR   ?= $(PREFIX)/etc
-SHAREDIR  = $(PREFIX)/share
 DOCDIR    = $(PREFIX)/share/doc/$(PN)
 MAN1DIR   = $(PREFIX)/share/man/man1
 UNITDIR   = $(LIBDIR)/systemd/system
+DATADIR   = $(PREFIX)/share/$(PN)
 
 all:
 
@@ -43,8 +43,8 @@ install-doc:
 
 install-share:
 	@echo installing ansi files...
-	install -Dm755 -d $(SHAREDIR)/$(PN)
-	install -Dm755 ansi/* $(SHAREDIR)/$(PN)/
+	install -Dm755 -d $(DATADIR)
+	install -Dm755 ansi/* $(DATADIR)/
 	@echo done.
 
 install: all install-bin install-man install-doc install-share
