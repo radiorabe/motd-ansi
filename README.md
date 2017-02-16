@@ -5,6 +5,21 @@ Used tool: https://github.com/maandree/util-say
 
 Tutorial: https://tylercipriani.com/blog/2014/05/22/creating-baller-useful-motd-ascii-art/
 
+## Installing
+
+We provide prebuilt rpm packages at the [home:radiorabe:branding OBS subproject](http://build.opensuse.org/project/show/home:radiorabe:branding)
+courtesy of the [openSUSE Build Service](https://build.opensuse.org). They install the 
+motd files and set up rabe_motd.txt as `/etc/motd` on systems that have an untouched 
+motd. If a kickstart motd is detected it is preserved to `/etc/motd.kickstart`. Though
+it would be silly to remove the package again, the changes are reversed upon removal.
+
+```bash
+curl -o /etc/yum.repos.d/home:radiorabe:branding.repo \
+     http://download.opensuse.org/repositories/home:/radiorabe:/branding/CentOS_7/home:radiorabe:branding.repo
+
+yum install -y rabe-motd-ansi
+```
+
 ## Releasing
 
 New RPMs get built for all tags with a valid version. New releases are created through git.
