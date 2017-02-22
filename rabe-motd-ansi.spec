@@ -27,7 +27,7 @@
 %define _install_motd_file rabe_motd.txt
 
 Name:          rabe-motd-ansi
-Version:       0.0.0
+Version:       0.1.0
 Release:       0
 Summary:       RaBe logos in beautiful ANSI format to use as motd
 License:       AGPLv3
